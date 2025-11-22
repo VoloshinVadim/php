@@ -9,8 +9,6 @@ declare(strict_types=1);
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Загрузка файла на сервер</title>
 </head>
  <body>
@@ -19,21 +17,19 @@ declare(strict_types=1);
 /*
  ЗАДАНИЕ
 */
-
-// Проверьте, отправлялся ли файл на сервер (проверка по ключу fupload)
+// Проверьте, отправлялся ли файл на сервер
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fupload'])) {
     
     $file = $_FILES['fupload'];
 
-    // Проверяем код ошибки (0 - ошибок нет)
+    // Проверяем код ошибки
     if ($file['error'] === UPLOAD_ERR_OK) {
         
-        // Получаем имя временного файла
         $tmpName = $file['tmp_name'];
         $originalName = htmlspecialchars($file['name']);
         $size = $file['size'];
 
-        // Проверка типа файла через Fileinfo
+        // Проверка типа файла через mime_content_type
         $mimeType = mime_content_type($tmpName);
 
         echo "<h3>Информация о файле:</h3>";
@@ -47,36 +43,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fupload'])) {
         // Если загружен файл типа "image/jpeg"
         if ($mimeType === 'image/jpeg') {
             
-            // Генерируем имя файла на основе MD5-хеша
-            // md5_file считает хеш содержимого файла
+            // Генерируем имя файла (MD5 хеш)
             $newName = md5_file($tmpName) . '.jpg';
             $destination = 'upload/' . $newName;
 
             // Перемещаем файл
             if (move_uploaded_file($tmpName, $destination)) {
-                echo "<h3 style='color:green'>Файл успешно загружен в папку upload!</h3>";
-                echo "<p>Новое имя: $newName</p>";
-                // Можно даже показать картинку
-                echo "<img src='$destination' width='200'>";
+                echo "<h3 style='color:green'>Файл успешно загружен!</h3>";
+                echo "<p>Сохранен как: $newName</p>";
+                echo "<img src='$destination' width='200' alt='Загруженное фото'>";
             } else {
-                echo "<h3 style='color:red'>Ошибка при перемещении файла. Проверьте права на папку upload.</h3>";
+                echo "<h3 style='color:red'>Ошибка при перемещении файла.</h3>";
             }
         } else {
-            echo "<h3 style='color:red'>Ошибка: Разрешена загрузка только JPG изображений!</h3>";
+            echo "<h3 style='color:red'>Ошибка: Разрешена загрузка только JPG!</h3>";
         }
 
     } else {
-        echo "<h3 style='color:red'>Ошибка загрузки. Код ошибки: " . $file['error'] . "</h3>";
+        echo "<h3 style='color:red'>Ошибка загрузки. Код: " . $file['error'] . "</h3>";
     }
 }
    ?>
 
   </div>
-  <!-- enctype="multipart/form-data" обязателен для загрузки файлов -->
+  
   <form enctype="multipart/form-data"
         action="<?=$_SERVER['PHP_SELF']?>" method="post">
     <p>
-      <!-- Ограничение размера файла (1 Мб) -->
       <input type="hidden" name="MAX_FILE_SIZE" value="1024000">
       <label>Выберите JPEG изображение:</label><br>
       <input type="file"   name="fupload"><br><br>
