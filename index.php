@@ -19,13 +19,18 @@
     
     <h3>Лабораторная работа №1</h3>
     <ul>
-        <li><a href="lab1/index.php">Открыть Лабу 1</a></li>
+        <li><a href="lab1/phpinfo.php">phpinfo</a></li>
+        <li><a href="lab1/vars.php">vars</a></li>
+        <li><a href="lab1/if.php">if</a></li>
+        <li><a href="lab1/switch.php">switch</a></li>
+        <li><a href="lab1/array.php">array</a></li>
+        <li><a href="lab1/constant.php">constant</a></li>
     </ul>
 
     <h3>Лабораторная работа №2 (Основы PHP)</h3>
     <ul>
-        <li><a href="lab2/for.php">Цикл For</a></li>
-        <li><a href="lab2/while.php">Цикл While</a></li>
+        <li><a href="lab2/for.php">for</a></li>
+        <li><a href="lab2/while.php">while</a></li>
         <li><a href="lab2/table.php">Таблица умножения</a></li>
         <li><a href="lab2/menu.php">Меню (массив)</a></li>
         <li><a href="lab2/gettable.php">Функция getTable</a></li>
@@ -35,12 +40,11 @@
 
     <h3>Лабораторная работа №3 (Встроенные функции)</h3>
     <ul>
-        <!-- Вот эти ссылки мы добавляем вручную -->
-        <li><a href="lab3/constants.php"><strong>Задание 1: Константы</strong></a></li>
-        <li><a href="lab3/functions.php"><strong>Задание 2: Функции модулей</strong></a></li>
-        <li><a href="lab3/strings.php">Задание 3: Строки</a></li>
-        <li><a href="lab3/date.php">Задание 4: Дата и время</a></li>
-        <li><a href="lab3/site/index.php">Задание 5: Движок сайта (Шаблоны)</a></li>
+        <li><a href="lab3/date.php"><strong>Задание 1: Строки</strong></a></li>
+        <li><a href="lab3/strings.php"><strong>Задание 2: Дата и время</strong></a></li>
+        <li><a href="lab3/functions.php">Задание 3: Константы</a></li>
+        <li><a href="lab3/constants.php">Задание 4: Функции модулей</a></li>
+        <li><a href="lab3/index.php">Задание 5: Движок сайта (Шаблоны)</a></li>
     </ul>
 
     <h3>Лабораторная работа №4 (POST и GET)</h3>
