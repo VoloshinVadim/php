@@ -47,18 +47,18 @@ function checkPasswordStrength(string $pass): bool
     $passResult = $isStrong ? '<span style="color:green">Надежный</span>' : '<span style="color:red">Слабый</span>';
     echo "<p>Пароль ($password): $passResult</p>";
 
-    // 3. Имя: Первая буква заглавная (для кириллицы mb_convert_case)
+    // 3. Имя: Первая буква заглавная
     $name = mb_convert_case($name, MB_CASE_TITLE, "UTF-8");
     echo "<p>Имя: <strong>$name</strong></p>";
 
     // 4. Email: валидация
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<p>Email ($email): <span style="color:green">Корректный</span></p>";
+        echo "<p>Email ($email): <span style='color:green'>Корректный</span></p>";
     } else {
-        echo "<p>Email ($email): <span style="color:red">Некорректный</span></p>";
+        echo "<p>Email ($email): <span style='color:red'>Некорректный</span></p>";
     }
 
-    // 5. Вывод кода "как есть" (htmlspecialchars)
+    // 5. Вывод кода "как есть"
     echo "<p>Переменная code: <code>" . htmlspecialchars($code) . "</code></p>";
 ?>
 </body>
