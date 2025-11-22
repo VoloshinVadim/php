@@ -8,8 +8,6 @@ declare(strict_types=1);
 /*
  ЗАДАНИЕ 1
 */
-
-// Установите константу для хранения имени файла
 define('FILENAME', 'db/guestbook.txt');
 
 // Проверьте, отправлялась ли форма
@@ -28,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Сформируйте строку для записи в файл (добавляем перенос строки PHP_EOL)
         $row = "$fname $lname" . PHP_EOL;
 
-        // Откройте соединение и запишите (file_put_contents делает это в одну команду)
+        // Откройте соединение и запишите
         // FILE_APPEND - дописать в конец, LOCK_EX - блокировка файла от одновременной записи
         file_put_contents(FILENAME, $row, FILE_APPEND | LOCK_EX);
 
@@ -42,8 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Работа с файлами</title>
 </head>
 <body>
@@ -62,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 /*
  ЗАДАНИЕ 2
 */
-
 // Проверьте, существует ли файл
 if (file_exists(FILENAME)) {
     
