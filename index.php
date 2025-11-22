@@ -40,8 +40,8 @@
 
     <h3>Лабораторная работа №3 (Встроенные функции)</h3>
     <ul>
-        <li><a href="lab3/date.php"><strong>Задание 1: Строки</strong></a></li>
-        <li><a href="lab3/strings.php"><strong>Задание 2: Дата и время</strong></a></li>
+        <li><a href="lab3/strings.php"><strong>Задание 1: Строки</strong></a></li>
+        <li><a href="lab3/date.php"><strong>Задание 2: Дата и время</strong></a></li>
         <li><a href="lab3/functions.php">Задание 3: Константы</a></li>
         <li><a href="lab3/constants.php">Задание 4: Функции модулей</a></li>
         <li><a href="lab3/index.php">Задание 5: Движок сайта (Шаблоны)</a></li>
