@@ -4,16 +4,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$rows = abs((int) $_POST['rows']);
 	$color = trim(strip_tags($_POST['color']));
 }
-$cols = ($cols ?? 0) ? $cols : 10;
-$rows = ($rows ?? 0) ? $rows : 10;
-$color = ($color ?? '') ? $color : '#ffff00';
+// Условие сокращенной записи из задания: ($cols) ? $cols : 10;
+$cols = ($cols ?? false) ? $cols : 10;
+$rows = ($rows ?? false) ? $rows : 10;
+$color = ($color ?? false) ? $color : '#ffff00';
 ?>
 <section>
+    
+    <!-- Action должен быть REQUEST_URI, чтобы сохранить параметр ?id=table -->
     <form action='<?= $_SERVER['REQUEST_URI']?>' method="POST">
-      <label>Колонки: </label><br>
+      <label>Количество колонок: </label><br>
       <input name='cols' type='text' value='<?= $cols ?>'><br>
-      <label>Строки: </label><br>
+      
+      <label>Количество строк: </label><br>
       <input name='rows' type='text' value='<?= $rows ?>'><br>
+      
       <label>Цвет: </label><br>
       <input name='color' type='color' value='<?= $color ?>' list="listColors">
       <datalist id="listColors">
@@ -25,5 +30,10 @@ $color = ($color ?? '') ? $color : '#ffff00';
       <input type='submit' value='Создать'>
     </form>
     <br>
-    <?php drawTable($cols, $rows, $color); ?>
+    <!-- Таблица -->
+    <?php 
+        // Вызов функции строго как в задании: drawTable
+        drawTable($cols, $rows, $color); 
+    ?>
+    <!-- Таблица -->
 </section>
