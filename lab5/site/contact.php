@@ -1,5 +1,10 @@
 <?php
-// Инициализация переменных для вывода статуса
+/*
+ * Файл contact.php (фрагмент для index.php)
+ * Реализует отправку почты.
+ */
+
+$msg = '';
 $messageSent = false;
 
 // Проверить, была ли форма отправлена методом POST
@@ -9,15 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $subject = trim(strip_tags($_POST['subject'] ?? ''));
     $body = trim(strip_tags($_POST['body'] ?? ''));
     
-    // Укажи здесь свой РЕАЛЬНЫЙ email, куда хочешь получать письма
-    $to = 'tvoj_email@example.com'; 
+    // ВАЖНО: Укажи здесь свой email
+    $to = 'admin@example.com'; 
 
-    // С помощью дополнительных заголовков изменить отправителя
+    // Дополнительные заголовки по заданию
     $headers = "From: admin@center.ogu\r\n";
     $headers .= "Content-type: text/plain; charset=utf-8\r\n";
 
     // Отправка письма
-    // Если тема и тело не пустые
     if ($subject !== '' && $body !== '') {
         if (mail($to, $subject, $body, $headers)) {
             $messageSent = true;
@@ -37,8 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     <h3>Задайте вопрос</h3>
     
-    <?php if (isset($msg)): ?>
-        <!-- Вывод сообщения об успехе или ошибке -->
+    <?php if ($msg): ?>
         <h3 style="color: <?= $messageSent ? 'green' : 'red' ?>"><?= $msg ?></h3>
     <?php endif; ?>
 
