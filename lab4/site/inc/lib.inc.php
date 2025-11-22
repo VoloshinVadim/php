@@ -3,9 +3,7 @@ declare(strict_types=1);
 
 /**
  * Отрисовывает таблицу умножения.
- * @param int $cols Количество столбцов
- * @param int $rows Количество строк
- * @param string $color Цвет заголовков
+ * Была getTable, стала drawTable по требованию Лабы 4.
  */
 function drawTable(int $cols = 10, int $rows = 10, string $color = 'yellow'): void
 {
@@ -25,11 +23,6 @@ function drawTable(int $cols = 10, int $rows = 10, string $color = 'yellow'): vo
     echo "</table>";
 }
 
-/**
- * Отрисовывает меню.
- * @param array $menu Массив меню
- * @param bool $vertical Вертикально или горизонтально
- */
 function getMenu(array $menu, bool $vertical = true): void
 {
     $style = $vertical ? '' : 'display: inline; margin-right: 15px;';
