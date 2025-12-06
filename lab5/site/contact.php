@@ -14,7 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $subject = trim(strip_tags($_POST['subject'] ?? ''));
     $body = trim(strip_tags($_POST['body'] ?? ''));
     
-    // ВАЖНО: Укажи здесь свой email
     $to = 'vadim.voloshin.228@mail.ru'; 
 
     // Дополнительные заголовки по заданию
