@@ -60,5 +60,11 @@
         <li><a href="lab5/site/index.php">Сайт школы (Отправка почты)</a></li>
     </ul>
 
+    <h3>Лабораторная работа №6 (Cookie и Сессии)</h3>
+    <ul>
+        <li><a href="lab6/cookie.php">Задание 1: Cookie (Счетчик посещений)</a></li>
+        <li><a href="lab6/page1.php">Задание 2: Сессии (История переходов)</a></li>
+    </ul>
+    
 </body>
 </html>
