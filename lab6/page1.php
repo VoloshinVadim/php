@@ -1,0 +1,33 @@
+<?php
+declare(strict_types=1);
+
+// Добавить настройки сессий
+ini_set("session.use_only_cookies", "0"); // Разрешить ID сессии в URL
+ini_set("session.use_trans_sid", "1");    // Автоматически добавлять ID к ссылкам
+
+// Открываем сессию
+session_start();
+
+// Подключаем код для сохранения
+include('savepage.inc.php');
+?>
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Страница 1</title>
+</head>
+<body>
+
+<h1>Страница 1</h1>
+
+<?php
+// Подключаем меню
+include('menu.inc.php');
+
+// Подключаем вывод истории
+include('visited.inc.php');
+?>
+
+</body>
+</html>
