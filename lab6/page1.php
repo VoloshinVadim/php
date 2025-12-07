@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+error_reporting(E_ALL & ~E_DEPRECATED); 
+
 // Добавить настройки сессий
 ini_set("session.use_only_cookies", "0"); // Разрешить ID сессии в URL
 ini_set("session.use_trans_sid", "1");    // Автоматически добавлять ID к ссылкам
