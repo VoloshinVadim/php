@@ -1,1 +1,1 @@
-config.php
+lab8/config.php
