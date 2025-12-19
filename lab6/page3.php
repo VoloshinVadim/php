@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-error_reporting(E_ALL & ~E_DEPRECATED); 
+error_reporting(E_ALL & ~E_DEPRECATED);
 
-ini_set("session.use_only_cookies", "0");
-ini_set("session.use_trans_sid", "1");
+ini_set("session.use_only_cookies", "1"); 
+ini_set("session.use_trans_sid", "0");    
 
 session_start();
 include('savepage.inc.php');
