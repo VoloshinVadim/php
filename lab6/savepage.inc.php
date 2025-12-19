@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 
-$currentPage = $_SERVER['REQUEST_URI'];
+$currentPage = $_SERVER['SCRIPT_NAME'];
 if (!isset($_SESSION["visited_pages"])) {
     $_SESSION["visited_pages"] = [];
 }
