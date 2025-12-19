@@ -10,7 +10,6 @@ declare(strict_types=1);
 spl_autoload_register(function ($class) {
     $file = str_replace('\\', '/', $class) . '.php';
 
-    // Если файл существует, подключаем его
     if (file_exists($file)) {
         require_once $file;
     }
@@ -46,14 +45,14 @@ use MyProject\Classes\SuperUser;
 
     <h2>Супер-пользователь (Админ)</h2>
     <?php
-    // Создание объекта класса SuperUser
     $admin = new SuperUser("Админ Админов", "admin", "0000", "administrator");
-    
-    // Вывод информации (с ролью)
     $admin->showInfo();
     ?>
 
     <h2>Лог работы деструкторов:</h2>
-    <!-- Деструкторы сработают здесь автоматически при завершении скрипта -->
+    <?php
+    unset($user1, $user2, $user3, $admin);
+    ?>
+
 </body>
 </html>
